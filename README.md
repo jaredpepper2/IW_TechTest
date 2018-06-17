@@ -17,12 +17,12 @@ Using **Ansible 2.5.4** I have created a playbook that uses **4** separate Ansib
 - Makes sure update manager is installed on the host.
 - Reboots the server.
 - Waits for the server to stand back up.
-#### Slack Role
+### Slack Role
 - Posts Failed, Initiated and Completed deployments on the host.  
 
 ## Reporting Errors
-- All reports are posted to the **Leeodisuniversity.slack.com** channel.
-- All Slack posts will either go to the **#failed_deployments** channel or the **#all_deployments** channel.
+All reports are posted to the **Leeodisuniversity.slack.com** channel. All Slack posts will either go to the **#failed_deployments** channel or the **#all_deployments** channel. Below is a list of the posts that are automated into the Slack channel:
+
 - Any deployment/configuration which is **performed** on the host via Ansible, is posted to Slack.
 - Any deployment/configuration which is **completed** on the host via Ansible, is posted to Slack
 - Any tasks that **fail** are posted to Slack. Failed reports in Slack will state:
@@ -36,11 +36,11 @@ Using **Ansible 2.5.4** I have created a playbook that uses **4** separate Ansib
 ## How to Perform Changes on the Host
 Running the following script will perform all automated deployments that are described in the playbook onto the target host. The script takes one argument, which is the file location of the hosts private key. Below is an example on how to run the script:
 
-**How to Run:**
-- Configure_Leodis_Server.sh [*Private key (PEM) file location*]
+**Command to Run:**
+- *Configure_Leodis_Server.sh [Private key (PEM) file location]*
 
 **Example:**
-- Configure_Leodis_Server.sh /home/user/Documents/PrivateKey.pem
+- *Configure_Leodis_Server.sh /home/user/Documents/PrivateKey.pem*
 
 **Requirements:**
 - Please make sure you run the script as your local user and not as root.
@@ -58,13 +58,13 @@ Running the following script will perform all automated deployments that are des
 3. Your user account has a *'Documents'* folder under the path location of */home/'your user'/*.
 
 ## Pushing in Future Improvements
-If more improvements need to be pushed into the host server, then more Ansible Roles could be added to the playbook, where new configurations can be described.
+If more improvements need to be pushed into the host server, then more Ansible Roles could be added to the playbook, where new configurations can be described. This could smiply be done by pushing more 'Roles' into the playbook on this repository.  
 
 ## Alternative Approach
 The ansible-pull feature could have been used from the host server. Ansible-pull could have been configured to pull this repository from the host server. Ansible-pull could have run on a schedule, so that deployments could have been performed often and idempotent. Any required changes to the server could have then been achieved by pushing new roles into the FixServer.yml playbook.
 
 ## Testing Approach
-The playbook was tested on a t2.micro instance, from my personal AWS account. The test server is still listed in the *hosts* file.
+The playbook was tested on a t2.micro instance, booted up from from my personal AWS account. The test server is still listed in the *hosts* file.
 
 ## To Do:
 - Find more potential issues
