@@ -11,7 +11,7 @@ Using *Ansible 2.5.4* I have created a playbook that uses *4* (change this soon?
 
 ### Common Role
 - Upgrades all packages on the host.
-### Monitoring Role
+### Monitoring Roles
 - Prints a summary of metrics to the console.
 ### Upgrade EOL Role
 - Upgrades all packages on the host.
@@ -45,10 +45,11 @@ Please make sure you run the script as your local user and not as root.
 
 What the script will do...
 1. Installs Git & Ansible on the local machine.
-2. Creates a 'Ansible' folder in your users documents folder
+2. Creates a 'Ansible' folder in your users document folder
 3. Pulls the latest version of this repo into the created 'Documents/Ansible' Folder
 4. Runs the FixServer.yml playbook
     a) The script will then perform deployments on the host.
+
 The script presumes:
 1. You are running the script as your local user
 2. You are passing in the correct .pem file location
