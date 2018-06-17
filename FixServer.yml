@@ -7,12 +7,5 @@
     - common
     - upgrade_eol
 
-# Does above install all security updates?
-# Put finished product on Git
-# Create Bash script. - arg1 [Private_key file location] arg2 [ip_address]
-# Whats reverse proxy??
-# Can I report somehow?
-# Slack token in variable??
-# Inline SSH keys??
-# Consider how you might test that your changes have not affected functionality
-# Show current state of server?
+# Does common role install all security updates?
+# I will need to test this
