@@ -55,7 +55,7 @@ Check_Private_Key_Arg()
 
 Run_PlayBook()
 {
-  sudo ansible-playbook "$LOCALREPO"/playbooks/FixServer.yml --private-key="$private_key"|| error_exit "Error was at Line no: $LINENO Please make sure that you are using the correct file path to the hosts private key. For example does the command resemble the following 'Configure_Leodis_Server.sh /home/user/Documents/PrivateKey.pem'"
+  sudo ansible-playbook "$LOCALREPO"/IW_TechTest/playbooks/FixServer.yml --private-key="$private_key"|| error_exit "Error was at Line no: $LINENO Please make sure that you are using the correct file path to the hosts private key. For example does the command resemble the following 'Configure_Leodis_Server.sh /home/user/Documents/PrivateKey.pem'"
 }
 
 error_exit()
