@@ -25,7 +25,7 @@ Configure_Local_Enviroment()
   # Creates Ansible Folder on System, if it does not already exsist
   mkdir -p /home/$me/Documents/Ansible ||  error_exit "Error was at Line no: $LINENO Issue creating 'Ansible' folder."
   # Getting Latest Version of Git Repo
-  LOCALREPO="/home/$me/Documents/Ansible"
+  LOCALREPO="/home/$me/Documents/Ansible/IW_TechTest"
   LOCALREPO_VC_DIR="$LOCALREPO"/.git
 }
 
@@ -38,8 +38,8 @@ Pull_Playbook_From_Git()
       git clone "$REPOSRC" ||  error_exit "Error was at Line no: $LINENO Problem cloning Git Repo"
   else
       cd "$LOCALREPO"
-      echo "Pulling latest version of Repository"  error_exit "Error was at Line no: $LINENO Problem Pulling Git Repo"
-      git pull "$REPOSRC"
+      echo "Pulling latest version of Repository"
+      git pull "$REPOSRC" || error_exit "Error was at Line no: $LINENO Problem Pulling Git Repo"
   fi
 }
 
@@ -55,7 +55,7 @@ Check_Private_Key_Arg()
 
 Run_PlayBook()
 {
-  sudo ansible-playbook "$LOCALREPO"/IW_TechTest/playbooks/FixServer.yml --private-key="$private_key"|| error_exit "Error was at Line no: $LINENO Please make sure that you are using the correct file path to the hosts private key. For example does the command resemble the following 'Configure_Leodis_Server.sh /home/user/Documents/PrivateKey.pem'"
+  sudo ansible-playbook "$LOCALREPO"/FixServer.yml --private-key="$private_key"|| error_exit "Error was at Line no: $LINENO Please make sure that you are using the correct file path to the hosts private key. For example does the command resemble the following 'Configure_Leodis_Server.sh /home/user/Documents/PrivateKey.pem'"
 }
 
 error_exit()
