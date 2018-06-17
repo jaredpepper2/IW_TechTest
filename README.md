@@ -1,12 +1,12 @@
 # IW Technical Test
-Below is a summary of the soloution I have put together for the IW technical test.
+Below is a summary of the solution I have put together for the IW technical test.
 
 ## Found Issue's
 1. Updates are required on the server
 2. OS has surpassed end of life
 
-## The Soloution
-Using **Ansible 2.5.4** I have created a playbook that uses **4** seperate Ansible roles to fix found issues, monitor metrics and report deployments from the AWS host. The roles are stated below:
+## The Solution
+Using **Ansible 2.5.4** I have created a playbook that uses **4** separate Ansible roles to fix found issues, monitor metrics and report deployments from the AWS host. The roles are stated below:
 
 ### Common Role
 - Upgrades all packages on the host.
@@ -23,7 +23,7 @@ Using **Ansible 2.5.4** I have created a playbook that uses **4** seperate Ansib
 ## Reporting Errors
 - All reports are posted to the **Leeodisuniversity.slack.com** channel.
 - All Slack posts will either go to the **#failed_deployments** channel or the **#all_deployments** channel.
-- Any deployment/configuration which is **perfomed** on the host via Ansible, is posted to Slack.
+- Any deployment/configuration which is **performed** on the host via Ansible, is posted to Slack.
 - Any deployment/configuration which is **completed** on the host via Ansible, is posted to Slack
 - Any tasks that **fail** are posted to Slack. Failed reports in Slack will state:
 
@@ -31,10 +31,10 @@ Using **Ansible 2.5.4** I have created a playbook that uses **4** seperate Ansib
       2. The action being performed by Ansible, when the task failed.
       3. The error message.
 
-*A invite to the Slack channel will be provided with the compiled soloution. If you find that the invite to the Slack channel has expired, then please do not hesitate to contact me at jaredpepper2@gmail.com for a new invite.*
+*A invite to the Slack channel will be provided with the compiled solution. If you find that the invite to the Slack channel has expired, then please do not hesitate to contact me at jaredpepper2@gmail.com for a new invite.*
 
 ## How to Perform Changes on the Host
-Running the following script will perofrm all automated deployments that are described in the playbook onto the target host. The script takes one argument, which is the file location of the hosts pirvate key. Below is an example on how to run the script:
+Running the following script will perform all automated deployments that are described in the playbook onto the target host. The script takes one argument, which is the file location of the hosts private key. Below is an example on how to run the script:
 
 **How to Run:**
 - Configure_Leodis_Server.sh [*Private key (PEM) file location*]
@@ -61,7 +61,7 @@ Running the following script will perofrm all automated deployments that are des
 If more improvements need to be pushed into the host server, then more Ansible Roles could be added to the playbook, where new configurations can be described.
 
 ## Alternative Approach
-The ansible-pull feature could have been used from the host server. Ansible-pull could have been configured to pull this repository from the host server. Ansible-pull could have run on a schedule, so that deployments could have been perfomed often and idempotent. Any required changes to the server could have then been achieved by pushing new roles into the FixServer.yml playbook.
+The ansible-pull feature could have been used from the host server. Ansible-pull could have been configured to pull this repository from the host server. Ansible-pull could have run on a schedule, so that deployments could have been performed often and idempotent. Any required changes to the server could have then been achieved by pushing new roles into the FixServer.yml playbook.
 
 ## Testing Approach
 The playbook was tested on a t2.micro instance, from my personal AWS account. The test server is still listed in the *hosts* file.
