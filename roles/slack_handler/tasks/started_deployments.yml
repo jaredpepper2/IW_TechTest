@@ -1,0 +1,15 @@
+#################################################################################
+# The Leeodisuniversity.slack.com Slack channel will be Notified of Deployments #
+# which have just begun                                                         #
+#################################################################################
+- name: Notify Slack of New Deployment
+  slack:
+    username: 'Ansible'
+    color: good
+    token: "/TB8E1RUTT/BB8TC5FMZ/HF4YMlvsd7gKTWqX0m961c5c"
+    channel: "#all_deployments"
+    msg: "*Overview*: Ansible has started a deployment on *{{ ansible_hostname }} ({{ inventory_hostname }})* \n
+    *Host Details*: The {{inventory_hostname}} is running {{ansible_distribution}} {{ansible_distribution_version}} {{ansible_distribution_release}}. \n
+    *Mem Specs*: Available memory is {{ansible_memfree_mb}}mb out of {{ansible_memtotal_mb}}mb. \n
+    *OS Specs*: The {{inventory_hostname}} is running on a {{ansible_os_family}} operating system, with a {{ansible_architecture}} architecture."
+  delegate_to: localhost

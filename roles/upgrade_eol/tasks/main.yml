@@ -1,0 +1,35 @@
+#############################################################
+# A list of tasks to be performed for upgrading the server  #
+#############################################################
+# 1. Notify Slack at Start of deployment/config             #
+# 2. Upgrade all the packages on the server                 #
+# 3. Make sure the Update Manager is presence on the server #
+# 4. Reboot the server                                      #
+# 5. Wait until the server has rebooted                     #
+# 6. Notify Slack at End of deployment/config               #
+#############################################################
+
+    # Conditionall Server Upgrade for 12.04
+  - block:
+      - debug:
+          msg: 'This server is running {{ansible_distribution}} {{ansible_distribution_version}} and will be upgraded to 14.04 LTS, if distrubtuion version is not already 14.04 LTS...'
+      - include_role:
+          name: slack_handler
+          tasks_from: started_deployments
+      - include: a_Upgrade_Packages.yml
+      - include: b_Update_Manager_Presence.yml
+      - include: c_Do_Release_Upgrade.yml
+      - include: d_Reboot_Server.yml
+      - include: e_Wait_Server_Reboot.yml
+      - include_role:
+          name: slack_handler
+          tasks_from: finished_deployments
+    when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+    #####################################################################################
+    # If you need to upgrade the Ubuntu Distubrution from a version different to 12.04, #
+    # then please update the version above  -----------------------------------> ^^^^   #                                     #
+    #####################################################################################
+    rescue:
+      - include_role:
+          name: slack_handler
+          tasks_from: failure

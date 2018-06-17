@@ -1,0 +1,8 @@
+###############################
+# 4. Reboot the Target Server #
+###############################
+
+  - name: Reboot the server
+    command: reboot
+    async: 0
+    poll: 0

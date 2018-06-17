@@ -1,0 +1,6 @@
+###########################################
+# 2. Make sure Update Manage is instaleld #
+###########################################
+
+  - name: Ensure update-manager-core is installed.
+    apt: name=update-manager-core state=present

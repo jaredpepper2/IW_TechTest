@@ -1,0 +1,9 @@
+###########################################################
+# A list of tasks to be performed for the Monitoring Role #
+###########################################################
+  - block:
+    - include: Display_Base_Stats.yml
+    rescue:
+      - include_role:
+          name: slack_handler
+          tasks_from: failure

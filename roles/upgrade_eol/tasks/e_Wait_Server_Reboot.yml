@@ -1,0 +1,11 @@
+###########################################
+# 5. Wait for the Server to Stand Back up #
+###########################################
+
+  - name: Wait for server to reboot.
+    wait_for:
+      host: "{{ ansible_ssh_host }}"
+      port: 22
+      state: started
+    connection: local
+    become: no

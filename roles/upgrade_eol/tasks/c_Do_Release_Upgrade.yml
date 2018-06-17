@@ -1,0 +1,6 @@
+###################################
+# 3. Complete Upgrade via command #
+###################################
+
+  - name: Run do-release-upgrade
+    command: do-release-upgrade -f DistUpgradeViewNonInteractive

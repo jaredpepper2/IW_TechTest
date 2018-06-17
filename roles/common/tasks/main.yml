@@ -1,0 +1,22 @@
+#############################################################
+# Perform common actions on server (Update Packages)        #
+#############################################################
+# 1. Notify Slack at Start of deployment/config             #
+# 2. Upgrade all the packages on the server                 #
+# 3. Notify Slack at End of deployment/config               #
+#############################################################
+
+  - block:
+      - debug:
+          msg: 'Upgrading all Packages on server...'
+      - include_role:
+          name: slack_handler
+          tasks_from: started_deployments
+      - include: Upgrade_Packages.yml
+      - include_role:
+          name: slack_handler
+          tasks_from: finished_deployments
+    rescue:
+      - include_role:
+          name: slack_handler
+          tasks_from: failure
