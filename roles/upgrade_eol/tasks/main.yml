@@ -24,7 +24,7 @@
       - include_role:
           name: slack_handler
           tasks_from: finished_deployments
-    when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+    when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '12.04'
     #####################################################################################
     # If you need to upgrade the Ubuntu Distubrution from a version different to 12.04, #
     # then please update the version above  -----------------------------------> ^^^^   #                                     #

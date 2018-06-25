@@ -14,7 +14,7 @@
           name: slack_handler
           tasks_from: started_deployments
       - include: fix_ssh_root.yml
-    #  - include: fix_apache_permissions.yml
+      - include: fix_apache_permissions.yml
       - include_role:
           name: slack_handler
           tasks_from: finished_deployments

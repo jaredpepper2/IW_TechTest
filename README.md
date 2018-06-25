@@ -1,11 +1,11 @@
 # IW Technical Test
-Below is a summary of the solution I have put together for the IW technical test.
+Below is a summary of the solution I have put together for the IW technical test. This technical test was put together on a **Ubuntu 18.04** OS with **Ansible 2.5.4**.
 
 ## Found Issue's
 1. Updates are required on the server
 2. OS has surpassed end of life
-3. Apache permissions are set to 777.
-4. Login is permitted for root user.
+3. Apache permissions are set to 777
+4. Login is permitted for root user
 
 ## The Solution
 Using **Ansible 2.5.4** I have created a playbook that uses **6** separate Ansible roles to, upgrade packages, monitor metrics, fix found issues, upgrade OS, report deployments and change the Apache configs. The roles are stated below:
@@ -73,7 +73,3 @@ The ansible-pull feature could have been used from the host server. Ansible-pull
 
 ## Testing Approach
 The playbook was tested on a t2.micro instance, booted up from from my personal AWS account. The test server is still listed in the *hosts* file.
-
-## To Do:
-- Ansible Vault: Variable for Slack Token
-- Change condition back to 12.04 in EoL role

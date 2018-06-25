@@ -1,4 +1,4 @@
-- hosts: Test_Servers
+- hosts: Leodis_Servers
   gather_facts: True
   become: yes
 
@@ -6,5 +6,5 @@
     - monitoring
     - common
     - small_fixes
-#    - update_config
+    - update_config
     - upgrade_eol
