@@ -5,7 +5,6 @@
   roles:
     - monitoring
     - common
-    - upgrade_eol
-
-# Does common role install all security updates?
-# I will need to test this
+    - small_fixes
+#    - update_config
+#    - upgrade_eol

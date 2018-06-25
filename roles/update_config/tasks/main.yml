@@ -1,0 +1,28 @@
+###########################################################################
+# Update the Apache Config Files                                          #
+###########################################################################
+# 1. Uses the Apache config file template and replaces file on server     #
+# 2. Uses the Apache vhost cong file template and repleces file on server #                                                             #
+# 2. Upgrade all the packages on the server                               #
+# 3. Notify Slack at End of deployment/config                             #
+###########################################################################
+
+  - block:
+      - debug:
+          msg: 'Copy Apache Config files...'
+
+      - include_role:
+          name: slack_handler
+          tasks_from: Start_Config_Change
+
+      - include: CopyApacheHost.yml
+      - include: CopyApachevHost.yml
+
+      - include_role:
+          name: slack_handler
+          tasks_from: Finish_Config_Changes
+
+    rescue:
+      - include_role:
+          name: slack_handler
+          tasks_from: failure

@@ -1,0 +1,16 @@
+##################################
+# Correct the Apache permissions #
+##################################
+
+  - name: Correct Apache Persissions
+    file:
+      dest: "{{ item }}"
+      owner: root
+      group: root
+      recurse: yes
+      mode: 0755
+    with_items:
+      - /opt/apache/conf
+      - /opt/apache/bin
+    notify:
+      - restart httpd

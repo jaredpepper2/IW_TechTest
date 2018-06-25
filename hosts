@@ -1,4 +1,4 @@
 [Leodis_Servers]
 Uni_Server ansible_ssh_host=ec2-52-30-107-53.eu-west-1.compute.amazonaws.com ansible_ssh_port=22
 [Test_Servers]
-Jared_Server ansible_ssh_host=ec2-13-58-71-198.us-east-2.compute.amazonaws.com ansible_ssh_port=22
+Jared_Server ansible_ssh_host=ec2-18-191-228-96.us-east-2.compute.amazonaws.com ansible_ssh_port=22

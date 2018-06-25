@@ -1,0 +1,16 @@
+#############################################################################
+# Update the Apache vHost Config File                                       #
+#############################################################################
+# 1. Uses the Apache vHost config file template and replaces file on server #
+############################################################################
+
+  - name: Copy Apache vHost Config
+    template:
+      src: httpd-vhosts.conf.j2
+      dest: /opt/apache/conf/extra/httpd-vhosts.conf
+      owner: root
+      group: root
+      mode: 0755
+    tags: httpd
+    notify:
+      - restart httpd

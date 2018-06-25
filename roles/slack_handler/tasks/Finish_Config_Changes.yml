@@ -1,0 +1,12 @@
+#################################################################################
+# The Leeodisuniversity.slack.com Slack channel will be Notified of Deployments #
+# which have just finished                                                      #
+#################################################################################
+- name: Notify Slack of Finished Deployment
+  slack:
+    username: 'Ansible'
+    color: good
+    token: "/TB8E1RUTT/BB8TC5FMZ/HF4YMlvsd7gKTWqX0m961c5c"
+    channel: "#all_deployments"
+    msg: "*Overview*: Ansible has finished the Apache config changes on *{{ ansible_hostname }} ({{ inventory_hostname }})* \n"
+  delegate_to: localhost

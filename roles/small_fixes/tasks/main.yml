@@ -1,0 +1,24 @@
+#############################################################
+# Perform fixes on SSH Root login & Apache Permissions      #
+#############################################################
+# 1. Notify Slack at Start of deployment/config             #
+# 2. Check SSH root login                                   #
+# 3. Check Apache permissions                               #
+# 3. Notify Slack at End of deployment/config               #
+#############################################################
+
+  - block:
+      - debug:
+          msg: 'Checking Apache Permissions & SHH Root Login Status ...'
+      - include_role:
+          name: slack_handler
+          tasks_from: started_deployments
+      - include: fix_ssh_root.yml
+    #  - include: fix_apache_permissions.yml
+      - include_role:
+          name: slack_handler
+          tasks_from: finished_deployments
+    rescue:
+      - include_role:
+          name: slack_handler
+          tasks_from: failure

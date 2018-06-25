@@ -1,0 +1,15 @@
+#######################################################################
+# Update the Apache Config File                                       #
+#######################################################################
+# 1. Uses the Apache config file template and replaces file on server #
+#######################################################################
+
+  - name: Copy Apache Config
+    template:
+      src: httpd.conf.j2
+      dest: /opt/apache/conf/httpd.conf
+      owner: root
+      group: root
+      mode: 0755
+    notify:
+      - restart httpd

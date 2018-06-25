@@ -1,0 +1,13 @@
+###############################
+# Handlers for httpd restart #
+##############################
+
+  - name: restart httpd
+    service:
+      name: httpd
+      state: restarted
+
+  - name: SSH Restart
+    service:
+      name: ssh
+      state: restarted
