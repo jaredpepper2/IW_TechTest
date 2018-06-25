@@ -35,7 +35,7 @@ Pull_Playbook_From_Git()
   then
       cd "$LOCALREPO"
       echo "Cloning latest version of Repository"
-      sudo git clone "$REPOSRC" ||  error_exit "Error was at Line no: $LINENO Problem cloning Git Repo"
+      git clone "$REPOSRC" ||  error_exit "Error was at Line no: $LINENO Problem cloning Git Repo"
       cd "$LOCALREPO/IW_TechTest"
   else
       cd "$LOCALREPO/IW_TechTest"
