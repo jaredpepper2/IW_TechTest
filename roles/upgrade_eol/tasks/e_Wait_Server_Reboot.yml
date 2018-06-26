@@ -9,3 +9,5 @@
       state: started
     connection: local
     become: no
+    notify:
+      - restart httpd
